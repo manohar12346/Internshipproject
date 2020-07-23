@@ -2,13 +2,20 @@ package com.example.internshipproject;
 
 import android.content.Context;
 import android.net.Uri;
+import android.os.Build;
 import android.os.Bundle;
 
+import androidx.annotation.RequiresApi;
 import androidx.fragment.app.Fragment;
 
+import android.transition.TransitionManager;
 import android.view.LayoutInflater;
+import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
+import android.widget.LinearLayout;
+import android.widget.RelativeLayout;
 
 
 /**
@@ -28,6 +35,8 @@ public class birthday extends Fragment {
     // TODO: Rename and change types of parameters
     private String mParam1;
     private String mParam2;
+    ImageView img;
+    ViewGroup layout;
 
     private OnFragmentInteractionListener mListener;
 
@@ -66,8 +75,23 @@ public class birthday extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_birthday, container, false);
+        View v=inflater.inflate(R.layout.fragment_birthday, container, false);
+
+        layout=v.findViewById(R.id.layout);
+
+        layout.setOnTouchListener(new RelativeLayout.OnTouchListener() {
+            @Override
+            public boolean onTouch(View v, MotionEvent event) {
+
+
+                return true;
+            }
+        });
+
+        return v;
     }
+
+
 
     // TODO: Rename method, update argument and hook method into UI event
     public void onButtonPressed(Uri uri) {
