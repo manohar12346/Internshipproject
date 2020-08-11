@@ -2,68 +2,7 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical" android:layout_width="match_parent"
     android:layout_height="match_parent">
-    <androidx.appcompat.widget.Toolbar
-        android:id="@+id/toolbar"
-        android:layout_width="match_parent"
-        android:layout_height="66dp"
-        android:background="#91B3A1"
 
 
-
-        >
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_marginLeft="0dp">
-
-
-            <ImageView
-                android:layout_width="69dp"
-                android:layout_height="43dp"
-                android:layout_gravity="center"
-                android:layout_margin="2dp"
-                android:src="@drawable/n">
-
-            </ImageView>
-
-            <TextView
-                android:layout_width="140dp"
-                android:layout_height="match_parent"
-                android:layout_gravity="top"
-                android:gravity="center"
-                android:text="Event Reminder"
-                android:textColor="@color/colorAccent"
-                android:textSize="20sp"
-                android:textStyle="italic">
-
-
-            </TextView>
-
-        </LinearLayout>
-
-
-    </androidx.appcompat.widget.Toolbar>
-
-
-
-
-
-
-    <com.google.android.material.tabs.TabLayout
-        android:id="@+id/tablayout"
-        android:layout_width="match_parent"
-        android:layout_height="46dp"
-        android:background="#91B3A1">
-
-    </com.google.android.material.tabs.TabLayout>
-
-    <androidx.viewpager.widget.ViewPager
-        android:id="@+id/viewpager"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent">
-
-
-    </androidx.viewpager.widget.ViewPager>
 
 </LinearLayout>

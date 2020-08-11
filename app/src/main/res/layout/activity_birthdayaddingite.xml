@@ -1,0 +1,178 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:background="#A2C557"
+    android:id="@+id/layout"
+    tools:context=".birthday"
+    >
+
+    <!-- TODO: Update blank fragment layout -->
+
+
+    <ImageView
+        android:layout_width="373dp"
+        android:layout_height="174dp"
+        android:src="@drawable/image"
+        android:id="@+id/image"
+
+        >
+
+    </ImageView>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="51dp">
+
+
+        <TextView
+            android:layout_width="104dp"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:text="Birth Day"
+            android:textColor="@android:color/black"
+            android:textSize="20sp"
+            android:textStyle="italic">
+
+        </TextView>
+
+        <Spinner
+            android:id="@+id/day"
+            android:layout_width="55dp"
+            android:layout_height="match_parent"
+            android:gravity="start"></Spinner>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:text="Birth month"
+
+            android:textColor="@android:color/black"
+            android:textSize="20sp"
+            android:textStyle="italic">
+
+        </TextView>
+
+
+        <Spinner
+            android:id="@+id/month"
+            style="@style/Widget.AppCompat.Spinner.DropDown.ActionBar"
+            android:layout_width="55dp"
+            android:layout_height="match_parent">
+
+        </Spinner>
+
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="81dp"
+        android:orientation="horizontal">
+
+
+        <TextView
+            android:id="@+id/selectedday"
+            android:layout_width="194dp"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:textColor="#D17596"
+
+            android:textSize="20sp"
+            android:textStyle="italic">
+
+        </TextView>
+
+        <TextView
+            android:id="@+id/selectedmonth"
+            android:layout_width="194dp"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:textColor="#D17596"
+            android:textSize="20sp"
+            android:textStyle="italic">
+
+        </TextView>
+
+    </LinearLayout>
+
+    <EditText
+        android:id="@+id/name"
+        android:layout_width="match_parent"
+        android:layout_height="44dp"
+        android:layout_gravity="top"
+        android:layout_marginTop="12dp"
+
+        android:background="@drawable/exampleborder"
+        android:gravity="center"
+        android:hint="Enter the name of the person"
+        android:lineSpacingExtra="@dimen/cardview_default_elevation"
+        android:textColor="#123456"
+        android:textColorHint="@android:color/black">
+
+    </EditText>
+    <EditText
+        android:id="@+id/phnum"
+        android:layout_width="match_parent"
+        android:layout_height="44dp"
+        android:layout_gravity="top"
+        android:layout_marginTop="12dp"
+
+        android:background="@drawable/x"
+        android:gravity="center"
+        android:hint="Enter the phone number of the person"
+        android:lineSpacingExtra="@dimen/cardview_default_elevation"
+        android:textColor="#123456"
+        android:textColorHint="@android:color/black">
+
+    </EditText>
+
+    <Button
+        android:id="@+id/savebutton"
+        android:layout_width="match_parent"
+        android:layout_marginTop="12dp"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:text="Save"
+
+        android:textColor="@android:color/black">
+
+    </Button>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <com.airbnb.lottie.LottieAnimationView
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            app:lottie_autoPlay="true"
+            app:lottie_loop="true"
+            app:lottie_rawRes="@raw/birthday">
+
+        </com.airbnb.lottie.LottieAnimationView>
+
+        <com.airbnb.lottie.LottieAnimationView
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            app:lottie_autoPlay="true"
+            app:lottie_loop="true"
+            app:lottie_rawRes="@raw/heart">
+
+        </com.airbnb.lottie.LottieAnimationView>
+
+    </LinearLayout>
+
+
+
+
+
+
+
+
+
+</LinearLayout>

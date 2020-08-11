@@ -1,21 +1,47 @@
 package com.example.internshipproject;
 
+import android.annotation.SuppressLint;
+import android.app.DatePickerDialog;
 import android.content.Context;
+import android.content.Intent;
 import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
 
+import androidx.annotation.NonNull;
 import androidx.annotation.RequiresApi;
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentActivity;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.transition.TransitionManager;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
+import android.widget.Button;
+import android.widget.DatePicker;
+import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
+import android.widget.Spinner;
+import android.widget.TextView;
+import android.widget.Toast;
+
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
+
+import java.util.ArrayList;
+import java.util.Calendar;
 
 
 /**
@@ -35,8 +61,10 @@ public class birthday extends Fragment {
     // TODO: Rename and change types of parameters
     private String mParam1;
     private String mParam2;
-    ImageView img;
-    ViewGroup layout;
+    Button save;
+    RecyclerView recyclerView;
+
+
 
     private OnFragmentInteractionListener mListener;
 
@@ -74,19 +102,71 @@ public class birthday extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
+
+
+
         // Inflate the layout for this fragment
-        View v=inflater.inflate(R.layout.fragment_birthday, container, false);
+        final View v=inflater.inflate(R.layout.fragment_birthday, container, false);
+        FirebaseDatabase database=FirebaseDatabase.getInstance();
+        DatabaseReference reference=database.getReference("userdetails");
+        final ArrayList<Pojo> list=new ArrayList<>();
+        final RecyclerView recyclerView;
+        recyclerView=v.findViewById(R.id.recycler);
 
-        layout=v.findViewById(R.id.layout);
-
-        layout.setOnTouchListener(new RelativeLayout.OnTouchListener() {
+        reference.addValueEventListener(new ValueEventListener() {
             @Override
-            public boolean onTouch(View v, MotionEvent event) {
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                list.clear();
+                Pojo pojo = null;
+                for (DataSnapshot dataSnapshot : snapshot.getChildren()) {
+                    pojo = dataSnapshot.getValue(Pojo.class);
+                    list.add(pojo);
+                    Myadapter adapter=new Myadapter(list, (FragmentActivity) getContext());
+                    recyclerView.setHasFixedSize(true);
+                    recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
+                    recyclerView.setAdapter(adapter);
+
+                }
 
 
-                return true;
+
+
+
+
+
+
+
+
+
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+
             }
         });
+
+
+
+        FloatingActionButton floatingActionButton;
+
+        floatingActionButton=v.findViewById(R.id.fab2);
+        floatingActionButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent=new Intent(getActivity(),birthdayaddingitems.class);
+                startActivity(intent);
+            }
+        });
+
+
+
+
+
+
+
+
+
 
         return v;
     }
@@ -94,11 +174,6 @@ public class birthday extends Fragment {
 
 
     // TODO: Rename method, update argument and hook method into UI event
-    public void onButtonPressed(Uri uri) {
-        if (mListener != null) {
-            mListener.onFragmentInteraction(uri);
-        }
-    }
 
 
 

@@ -9,22 +9,28 @@ import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentPagerAdapter;
+import androidx.fragment.app.FragmentTransaction;
 import androidx.viewpager.widget.ViewPager;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
+import android.view.MenuItem;
 import android.view.ViewGroup;
+import android.widget.ArrayAdapter;
 import android.widget.LinearLayout;
 
 import com.google.android.material.navigation.NavigationView;
 import com.google.android.material.tabs.TabLayout;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
     ViewPager pager;
     TabLayout tab;
     Toolbar bar;
     DrawerLayout layout;
     NavigationView navig;
+    FragmentManager manager;
+    FragmentTransaction transaction;
 
 
     @Override
@@ -36,13 +42,16 @@ public class MainActivity extends AppCompatActivity {
         navig=findViewById(R.id.navigation);
         layout=findViewById(R.id.drawer);
 
+
         bar=findViewById(R.id.toolbar);
-        pager.setAdapter(new Adapter (getSupportFragmentManager()));
+        pager.setAdapter(new Adapter (getSupportFragmentManager(),Adapter.BEHAVIOR_RESUME_ONLY_CURRENT_FRAGMENT,tab.getTabCount()));
         tab.setupWithViewPager(pager);
         setSupportActionBar(bar);
         ActionBarDrawerToggle toggle=new ActionBarDrawerToggle(this,layout,bar,0,0);
         toggle.syncState();
         layout.addDrawerListener(toggle);
+        navig.setNavigationItemSelectedListener(this);
+
 
 
 
@@ -54,8 +63,9 @@ public class MainActivity extends AppCompatActivity {
         return super.onCreateOptionsMenu(menu);
     }
 
+
     class Adapter extends FragmentPagerAdapter {
-        public Adapter(@NonNull FragmentManager fm) {
+        public Adapter(@NonNull FragmentManager fm, int behaviorResumeOnlyCurrentFragment, int tabCount) {
             super(fm);
         }
 
@@ -96,4 +106,23 @@ public class MainActivity extends AppCompatActivity {
 
         }
     }
+
+    @Override
+    public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+        manager=getSupportFragmentManager();
+        transaction=manager.beginTransaction();
+        switch(item.getItemId()){
+            case R.id.settings:
+                Intent inten =new Intent(this,settings.class);
+                startActivity(inten);
+                break;
+
+            case R.id.ome:
+                Intent intent =new Intent(this,MainActivity.class);
+                startActivity(intent);
+
+        }
+        return false;
+    }
+
 }

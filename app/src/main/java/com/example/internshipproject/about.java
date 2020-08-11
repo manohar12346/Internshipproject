@@ -1,7 +1,6 @@
 package com.example.internshipproject;
 
 import android.content.Context;
-import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 
@@ -10,19 +9,17 @@ import androidx.fragment.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ArrayAdapter;
-import android.widget.Button;
 
 
 /**
  * A simple {@link Fragment} subclass.
  * Activities that contain this fragment must implement the
- * {@link Anniversaries.OnFragmentInteractionListener} interface
+ * {@link about.OnFragmentInteractionListener} interface
  * to handle interaction events.
- * Use the {@link Anniversaries#newInstance} factory method to
+ * Use the {@link about#newInstance} factory method to
  * create an instance of this fragment.
  */
-public class Anniversaries extends Fragment {
+public class about extends Fragment {
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM1 = "param1";
@@ -34,7 +31,7 @@ public class Anniversaries extends Fragment {
 
     private OnFragmentInteractionListener mListener;
 
-    public Anniversaries() {
+    public about() {
         // Required empty public constructor
     }
 
@@ -44,11 +41,11 @@ public class Anniversaries extends Fragment {
      *
      * @param param1 Parameter 1.
      * @param param2 Parameter 2.
-     * @return A new instance of fragment Anniversaries.
+     * @return A new instance of fragment about.
      */
     // TODO: Rename and change types and number of parameters
-    public static Anniversaries newInstance(String param1, String param2) {
-        Anniversaries fragment = new Anniversaries();
+    public static about newInstance(String param1, String param2) {
+        about fragment = new about();
         Bundle args = new Bundle();
         args.putString(ARG_PARAM1, param1);
         args.putString(ARG_PARAM2, param2);
@@ -69,18 +66,7 @@ public class Anniversaries extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        View v= inflater.inflate(R.layout.fragment_anniversaries, container, false);
-
-        Button btn=v.findViewById(R.id.button);
-        btn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent=new Intent(getContext(),birthdayaddingitems.class);
-                startActivity(intent);
-            }
-        });
-        return v;
-
+        return inflater.inflate(R.layout.fragment_about, container, false);
     }
 
     // TODO: Rename method, update argument and hook method into UI event
@@ -90,6 +76,16 @@ public class Anniversaries extends Fragment {
         }
     }
 
+    @Override
+    public void onAttach(Context context) {
+        super.onAttach(context);
+        if (context instanceof OnFragmentInteractionListener) {
+            mListener = (OnFragmentInteractionListener) context;
+        } else {
+            throw new RuntimeException(context.toString()
+                    + " must implement OnFragmentInteractionListener");
+        }
+    }
 
     @Override
     public void onDetach() {

@@ -1,122 +1,37 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
+    android:layout_marginTop="56dp"
     android:id="@+id/layout"
     tools:context=".birthday"
-    android:background="#6D9449">
+    >
 
     <!-- TODO: Update blank fragment layout -->
 
-
-
-
-    <TextView
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recycler"
         android:layout_width="match_parent"
-        android:layout_height="99dp"
-        android:gravity="center"
-        android:text="Happy life with happy wishing we are with you to make you remember important days"
-        android:textColor="#FF3D01"
-        android:textSize="20dp"
-        android:textStyle="italic">
+        android:layout_height="451dp">
 
-    </TextView>
+    </androidx.recyclerview.widget.RecyclerView>
 
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/fab2"
+        android:layout_width="88dp"
+        android:layout_height="98dp"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="81dp"
-        android:background="@drawable/spinner">
+        android:layout_gravity="end|bottom"
+        android:layout_marginEnd="13dp"
+        android:layout_marginBottom="104dp"
+        android:src="@drawable/ic_person_add_black_24dp">
 
-        <TextView
-            android:layout_width="104dp"
-            android:layout_height="match_parent"
-            android:gravity="center"
-            android:text="Birth Day"
-            android:textColor="@android:color/black"
-            android:textSize="20sp"
-            android:textStyle="italic">
-
-        </TextView>
-
-        <Spinner
-            android:id="@+id/day"
-            android:layout_width="55dp"
-            android:gravity="start"
-            android:layout_height="match_parent">
-
-        </Spinner>
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="64dp"
-            android:gravity="center"
-            android:text="Birth month"
-
-            android:textColor="@android:color/black"
-            android:textSize="20sp"
-            android:textStyle="italic">
-
-        </TextView>
+    </com.google.android.material.floatingactionbutton.FloatingActionButton>
 
 
-        <Spinner
-            android:id="@+id/month"
-            android:layout_width="55dp"
-            android:layout_height="match_parent">
-
-        </Spinner>
-
-
-    </LinearLayout>
-
-    <EditText
-        android:id="@+id/name"
-        android:layout_width="match_parent"
-        android:layout_height="47dp"
-        android:layout_marginTop="30dp"
-
-        android:background="@drawable/exampleborder"
-        android:gravity="center"
-        android:hint="Enter the name of the person"
-        android:lineSpacingExtra="@dimen/cardview_default_elevation"
-        android:textColor="#123456"
-        android:textColorHint="@android:color/black">
-
-    </EditText>
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
-
-        <com.airbnb.lottie.LottieAnimationView
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            app:lottie_autoPlay="true"
-            app:lottie_loop="true"
-            app:lottie_rawRes="@raw/birthday">
-
-        </com.airbnb.lottie.LottieAnimationView>
-
-        <com.airbnb.lottie.LottieAnimationView
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            app:lottie_autoPlay="true"
-            app:lottie_loop="true"
-            app:lottie_rawRes="@raw/heart">
-
-        </com.airbnb.lottie.LottieAnimationView>
-
-    </LinearLayout>
-
-
-
-
-
-
-
-
-
-</LinearLayout>
+</RelativeLayout>

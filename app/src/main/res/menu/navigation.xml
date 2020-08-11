@@ -2,25 +2,27 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android">\
 
 
-   <group android:checkableBehavior="single">
+   <group android:checkableBehavior="single"
+       android:visible="true">
 
        <item
-                android:title="title1"
-                android:id="@+id/title1"
-                android:icon="@drawable/s">
+                android:title="HOME"
+
+                android:icon="@drawable/home"
+                android:id="@+id/ome">
 
        </item>
        <item
-                android:title="title2"
-                android:icon="@drawable/p"
-                android:id="@+id/title2"
+                android:title="SETTINGS"
+                android:icon="@drawable/ic_settings_applications_black_24dp"
+                android:id="@+id/settings"
                 >
 
        </item>
        <item
-                android:title="title3"
-                android:icon="@drawable/e"
-                android:id="@+id/title3">
+                android:title="HELP"
+                android:icon="@drawable/ic_live_help_black_24dp"
+                android:id="@+id/help">
 
        </item>
 
@@ -29,23 +31,29 @@
 
 
 
-    <item
-            android:title="title5"
-            android:id="@+id/title5"
-            android:icon="@drawable/s">
 
-    </item>
     <item
-            android:title="title2"
-            android:icon="@drawable/p"
-            android:id="@+id/title6"
-            >
+            android:title="MORE">
 
-    </item>
-    <item
-            android:title="title3"
-            android:icon="@drawable/e"
-            android:id="@+id/title7">
+        <menu>
+
+            <item
+                android:title="FEEDBACK"
+                android:icon="@drawable/ic_feedback_black_24dp"
+                android:id="@+id/feedback"
+                >
+
+            </item>
+            <item
+                android:title="ABOUT APP"
+                android:icon="@drawable/about"
+                android:id="@+id/about">
+
+            </item>
+
+        </menu>
+
+
 
     </item>
 

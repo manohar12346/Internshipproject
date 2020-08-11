@@ -5,9 +5,13 @@
     android:background="#FDD835">
 
     <ImageView
-        android:layout_width="317dp"
-        android:layout_height="75dp"
+        android:layout_width="324dp"
+        android:layout_height="78dp"
         android:layout_gravity="top"
+        android:layout_marginLeft="0dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginBottom="15dp"
+
         android:src="@drawable/e">
 
     </ImageView>

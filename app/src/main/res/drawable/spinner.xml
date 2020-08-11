@@ -5,6 +5,15 @@
         android:left="40dp">
 
     </padding>
+    <corners
+        android:radius="2dp"
+        >
+
+    </corners>
+    <stroke
+        android:color="#00897B">
+
+    </stroke>
 
 
 </shape>
